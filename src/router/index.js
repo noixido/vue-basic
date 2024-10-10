@@ -5,6 +5,7 @@ import Dashboard from '../components/Dashboard.vue'
 import MainLayout from '../components/Layout/MainLayout.vue'
 import Home from '../components/Pages/Home.vue'
 import About from '../components/Pages/About.vue'
+import University from '../components/Pages/University.vue'
 
 const routes = [
   { 
@@ -33,7 +34,12 @@ const routes = [
         path: 'about',
         name: 'about',
         component: About,
-      }
+      },
+      {
+        path: 'university',
+        name: 'university',
+        component: University,
+      },
     ],
   },
 ]

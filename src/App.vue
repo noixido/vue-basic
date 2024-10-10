@@ -1,23 +1,19 @@
 <template>
-  <div data-theme="halloween" class="bg-lime-200 h-screen">
-    <RouterView/>
+  <div data-theme="halloween" class="bg-lime-200 h-auto min-h-screen">
+    <RouterView />
   </div>
 </template>
 
 <script>
 import Login from "./components/Auth/Login.vue";
-import {RouterView} from "vue-router";
+import { RouterView } from "vue-router";
 export default {
-  components:{
+  components: {
     Login,
     RouterView,
   },
-  setup () {
-    
-  }
-}
+  setup() {},
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
