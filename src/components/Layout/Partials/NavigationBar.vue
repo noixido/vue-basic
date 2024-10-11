@@ -20,7 +20,7 @@
         </label>
       </div>
       <div class="flex-1">
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+        <router-link to="/home" class="btn btn-ghost text-xl">noixido</router-link>
       </div>
       <div class="flex-none gap-2">
         <div class="form-control">
@@ -44,13 +44,13 @@
             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a class="justify-between">
+              <router-link to="/profile/admin" class="justify-between">
                 Profile
-                <span class="badge">New</span>
-              </a>
+                <!-- <span class="badge">New</span> -->
+              </router-link>
             </li>
-            <li><a>Settings</a></li>
-            <li><a>Logout</a></li>
+            <!-- <li><a>Settings</a></li> -->
+            <li><a @click="logout">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -59,9 +59,25 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 export default {
+  data() {
+    return {
+      router: useRouter(),
+    };
+  },
   setup() {
     return {};
+  },
+  methods: {
+    logout() {
+      // Clear token from localStorage
+      localStorage.removeItem("token");
+
+      // Redirect to login page
+      this.router.push("/");
+    },
   },
 };
 </script>

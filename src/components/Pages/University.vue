@@ -49,7 +49,7 @@
           @change="currentPage = 1"
           class="border border-gray-300 rounded p-2 bg-white"
         >
-          <option v-for="option in [1, 10, 25, 50, 100]" :key="option" :value="option">
+          <option v-for="option in [2, 10, 25, 50, 100]" :key="option" :value="option">
             {{ option }}
           </option>
         </select>
@@ -412,8 +412,16 @@ export default {
         .delete(api)
         .then((response) => {
           alert(response.data.message);
-          // $("#prev").click();
-          this.prevPage();
+          // this.prevPage();
+
+          if (
+            this.currentPage === this.totalPages &&
+            this.paginatedUniversities.length === 1
+          ) {
+            // If true, go to the previous page
+            this.prevPage();
+          }
+
           this.fetchData();
         })
         .catch((error) => {
